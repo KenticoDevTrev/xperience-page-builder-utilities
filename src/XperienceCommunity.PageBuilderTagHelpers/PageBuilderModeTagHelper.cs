@@ -1,4 +1,6 @@
 ﻿using System;
+using CMS.Websites.Routing;
+using Kentico.PageBuilder.Web.Mvc;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Primitives;
 
@@ -14,14 +16,12 @@ namespace XperienceCommunity.PageBuilderUtilities
     /// Sourced from https://github.com/dotnet/aspnetcore/blob/v5.0.1/src/Mvc/Mvc.TagHelpers/src/EnvironmentTagHelper.cs
     /// </remarks>
     [HtmlTargetElement("page-builder-mode")]
-    public class PageBuilderModeTagHelper : TagHelper
+    public class PageBuilderModeTagHelper(IWebsiteChannelContext websiteChannelContext, IPageBuilderDataContextRetriever pageBuilderDataContextRetriever) : TagHelper
     {
-        private static readonly char[] nameSeparator = new[] { ',' };
+        private static readonly char[] nameSeparator = [','];
 
-        private readonly IPageBuilderContext pageBuilderContext;
-
-        public PageBuilderModeTagHelper(IPageBuilderContext pageBuilderContext) =>
-            this.pageBuilderContext = pageBuilderContext ?? throw new ArgumentNullException(nameof(pageBuilderContext));
+        private readonly IWebsiteChannelContext websiteChannelContext = websiteChannelContext ?? throw new ArgumentNullException(nameof(websiteChannelContext));
+        private readonly IPageBuilderDataContextRetriever pageBuilderDataContextRetriever = pageBuilderDataContextRetriever ?? throw new ArgumentNullException(nameof(pageBuilderDataContextRetriever));
 
         /// <inheritdoc />
         public override int Order => -999;
@@ -40,15 +40,9 @@ namespace XperienceCommunity.PageBuilderUtilities
         /// <inheritdoc />
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            if (context is null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            ArgumentNullException.ThrowIfNull(context);
 
-            if (output is null)
-            {
-                throw new ArgumentNullException(nameof(output));
-            }
+            ArgumentNullException.ThrowIfNull(output);
 
             // Always strip the outer tag name as we never want <page-builder-mode> to render
             output.TagName = null;
@@ -59,12 +53,30 @@ namespace XperienceCommunity.PageBuilderUtilities
                 return;
             }
 
-            string currentPageBuilderModeName = pageBuilderContext.ModeName();
 
-            if (string.IsNullOrEmpty(currentPageBuilderModeName))
+            string currentPageBuilderModeName = "";
+            string secondaryMode = "";
+            try
             {
-                // No current page builder mode name, do nothing
-                return;
+                if (pageBuilderDataContextRetriever.Retrieve().EditMode)
+                {
+                    currentPageBuilderModeName = "Edit";
+                    if (websiteChannelContext.IsPreview)
+                    {
+                        secondaryMode = "Preview";
+                    }
+                }
+                else if (websiteChannelContext.IsPreview)
+                {
+                    currentPageBuilderModeName = "LivePreview";
+                }
+            }
+            catch (Exception) { }
+
+            // Live mode
+            if (string.IsNullOrWhiteSpace(currentPageBuilderModeName))
+            {
+                currentPageBuilderModeName = "Live";
             }
 
             if (Exclude != null)
@@ -75,7 +87,9 @@ namespace XperienceCommunity.PageBuilderUtilities
                     var mode = item.Trim();
                     if (mode.HasValue && mode.Length > 0)
                     {
-                        if (mode.Equals(currentPageBuilderModeName, StringComparison.OrdinalIgnoreCase))
+                        if (mode.Equals(currentPageBuilderModeName, StringComparison.OrdinalIgnoreCase)
+                            || mode.Equals(secondaryMode, StringComparison.OrdinalIgnoreCase)
+                            )
                         {
                             // Matching page builder mode name found, suppress output
                             output.SuppressOutput();
@@ -96,7 +110,8 @@ namespace XperienceCommunity.PageBuilderUtilities
                     if (mode.HasValue && mode.Length > 0)
                     {
                         hasModes = true;
-                        if (mode.Equals(currentPageBuilderModeName, StringComparison.OrdinalIgnoreCase))
+                        if (mode.Equals(currentPageBuilderModeName, StringComparison.OrdinalIgnoreCase)
+                            || mode.Equals(secondaryMode, StringComparison.OrdinalIgnoreCase))
                         {
                             // Matching page builder mode name found, do nothing
                             return;
