@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XperienceCommunity.PageBuilderTagHelpers", "src\XperienceCommunity.PageBuilderTagHelpers\XperienceCommunity.PageBuilderTagHelpers.csproj", "{7CAF38B4-5C44-47FD-B79F-6AA0BDFE0522}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XperienceCommunity.DevTools.PageBuilderTagHelpers", "src\XperienceCommunity.PageBuilderTagHelpers\XperienceCommunity.DevTools.PageBuilderTagHelpers.csproj", "{7CAF38B4-5C44-47FD-B79F-6AA0BDFE0522}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7FBA6D29-D94E-484D-9BA1-3910EFE5144E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XperienceCommunity.PageBuilderUtilities", "src\XperienceCommunity.PageBuilderUtilities\XperienceCommunity.PageBuilderUtilities.csproj", "{966625AC-777F-4DC8-931A-4865BA0C68BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XperienceCommunity.DevTools.PageBuilderUtilities", "src\XperienceCommunity.PageBuilderUtilities\XperienceCommunity.DevTools.PageBuilderUtilities.csproj", "{966625AC-777F-4DC8-931A-4865BA0C68BF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PageBuilderTagHelpers", "PageBuilderTagHelpers", "{E23E346B-6203-4FED-8304-33DF8AB9F8EA}"
 EndProject
