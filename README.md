@@ -99,7 +99,7 @@ to help toggle HTML in Razor views based on the Page Builder 'mode' of the reque
 1. Include the [tag helper assembly name](https://docs.microsoft.com/en-US/aspnet/core/mvc/views/tag-helpers/intro?view=aspnetcore-5.0#addtaghelper-makes-tag-helpers-available) in the `~/Views/_ViewImports.cshtml`
 
    ```html
-   @addTagHelper *, XperienceCommunity.PageBuilderTagHelpers
+   @addTagHelper *, XperienceCommunity.DevTools.PageBuilderTagHelpers
    ```
 
 1. Use the tag helper in your Razor views
