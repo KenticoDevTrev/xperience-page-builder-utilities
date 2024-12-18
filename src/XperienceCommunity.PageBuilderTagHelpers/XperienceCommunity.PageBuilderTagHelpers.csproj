@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
 
     <Description>
       This package provides an ASP.NET Core Tag Helper to help toggle the rendering of markup in a Razor View based on the Kentico Xperience Page Builder mode of the current request.
     </Description>
 
-    <Product>XperienceCommunity.PageBuilderTagHelpers</Product>
+    <Product>XperienceCommunity.DevTools.PageBuilderTagHelpers</Product>
     <Title>$(Product)</Title>
     <PackageTags>$(PackageTags);Tag Helpers</PackageTags>
   </PropertyGroup>
@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Kentico.Xperience.AspNetCore.WebApp" />
+    <PackageReference Include="Kentico.Xperience.WebApp" />
     <PackageReference Include="Microsoft.SourceLink.GitHub">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

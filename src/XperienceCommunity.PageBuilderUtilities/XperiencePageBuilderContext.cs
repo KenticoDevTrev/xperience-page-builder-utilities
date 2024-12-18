@@ -1,26 +1,36 @@
 using System;
-using Kentico.Content.Web.Mvc;
+using CMS.Websites.Routing;
 using Kentico.PageBuilder.Web.Mvc;
-using Kentico.Web.Mvc;
-using Microsoft.AspNetCore.Http;
 
 namespace XperienceCommunity.PageBuilderUtilities
 {
-    public class XperiencePageBuilderContext : IPageBuilderContext
+    public class XperiencePageBuilderContext(IWebsiteChannelContext websiteChannelContext,
+        IPageBuilderDataContextRetriever pageBuilderDataContextRetriever) : IPageBuilderContext
     {
-        private readonly IHttpContextAccessor accessor;
-
-        public XperiencePageBuilderContext(IHttpContextAccessor accessor) =>
-            this.accessor = accessor ?? throw new ArgumentNullException(nameof(accessor));
+        private readonly IWebsiteChannelContext websiteChannelContext = websiteChannelContext ?? throw new ArgumentNullException(nameof(websiteChannelContext));
+        private readonly IPageBuilderDataContextRetriever pageBuilderDataContextRetriever = pageBuilderDataContextRetriever ?? throw new ArgumentNullException(nameof(pageBuilderDataContextRetriever));
 
         /// <inheritdoc />
-        public bool IsPreviewMode => accessor.HttpContext?.Kentico()?.Preview()?.Enabled ?? false;
+        public bool IsPreviewMode => websiteChannelContext.IsPreview;
 
         /// <inheritdoc />
         public bool IsLivePreviewMode => IsPreviewMode && !IsEditMode;
 
         /// <inheritdoc />
-        public bool IsEditMode => accessor.HttpContext?.Kentico()?.PageBuilder()?.EditMode ?? false;
+        public bool IsEditMode
+        {
+            get
+            {
+                try
+                {
+                    return pageBuilderDataContextRetriever.Retrieve().EditMode;
+                }
+                catch (Exception)
+                {
+                }
+                return false;
+            }
+        }
 
         /// <inheritdoc />
         public bool IsLiveMode => !IsPreviewMode;

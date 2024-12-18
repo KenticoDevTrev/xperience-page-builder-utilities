@@ -1,14 +1,16 @@
 # Xperience Page Builder Utilities
+This is an updated version of [Sean's xperience-page-builder-utilities](https://github.com/wiredviews/xperience-page-builder-utilities) for Xperience by Kentico
 
 ## Packages
 
-- [![NuGet Package](https://img.shields.io/nuget/v/XperienceCommunity.PageBuilderUtilities.svg)](https://www.nuget.org/packages/XperienceCommunity.PageBuilderUtilities)
+- [![NuGet Package](https://img.shields.io/nuget/v/XperienceCommunity.PageBuilderUtilities.svg)](https://www.nuget.org/packages/XperienceCommunity.DevTools.PageBuilderUtilities)
 
-- [![NuGet Package](https://img.shields.io/nuget/v/XperienceCommunity.PageBuilderTagHelpers.svg)](https://www.nuget.org/packages/XperienceCommunity.PageBuilderTagHelpers)
+- [![NuGet Package](https://img.shields.io/nuget/v/XperienceCommunity.PageBuilderTagHelpers.svg)](https://www.nuget.org/packages/XperienceCommunity.DevTools.PageBuilderTagHelpers)
+
 
 ## Dependencies
 
-These libraries are compatible with ASP.NET Core 3.1 -> ASP.NET Core 6 and are designed to be used with the Xperience 13.0 Content Delivery (MVC) application [running on ASP.NET Core](https://docs.xperience.io/x/BQ2RBg).
+These libraries are compatible with ASP.NET Core 8.0+ and are designed to be used with the Xperience by Kentico 30.0 and above application [running on ASP.NET Core](https://docs.xperience.io/x/BQ2RBg).
 
 ## Page Builder Utilities
 
@@ -19,7 +21,7 @@ This library provides an abstraction over the Kentico Xperience Page Builder [re
 1. First, install the NuGet package in your ASP.NET Core project:
 
    ```bash
-   dotnet add package XperienceCommunity.PageBuilderUtilities
+   dotnet add package XperienceCommunity.DevTools.PageBuilderUtilities
    ```
 
 1. Add the required types to the DI container in your project's `Startup.cs` file
@@ -31,7 +33,7 @@ This library provides an abstraction over the Kentico Xperience Page Builder [re
    }
    ```
 
-1. You can now use the `IPageBuilderContext` interface (available in the `XperienceCommunity.PageBuilderUtilities` namespace) as a constructor dependency anywhere in your application to more easily determine the state of the current request:
+1. You can now use the `IPageBuilderContext` interface (available in the `XperienceCommunity.DevTools.PageBuilderUtilities` namespace) as a constructor dependency anywhere in your application to more easily determine the state of the current request:
 
    ```csharp
    public class ProductsController
@@ -80,7 +82,7 @@ to help toggle HTML in Razor views based on the Page Builder 'mode' of the reque
 1. First, install the NuGet package in your ASP.NET Core project
 
    ```bash
-   dotnet add package XperienceCommunity.PageBuilderTagHelpers
+   dotnet add package XperienceCommunity.DevTools.PageBuilderTagHelpers
    ```
 
 1. Add the required types to the DI container in your `Startup.cs` file
@@ -127,12 +129,12 @@ to help toggle HTML in Razor views based on the Page Builder 'mode' of the reque
 
 ## Contributing
 
-To build this project, you must have v6.0.300 or higher
-of the [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) installed.
+To build this project, you must have v8.0 or higher
+of the [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) installed.
 
-If you've found a bug or have a feature request, please [open an issue](https://github.com/wiredviews/xperience-page-builder-utilities/issues/new) on GitHub.
+If you've found a bug or have a feature request, please [open an issue](https://github.com/KenticoDevTrev/xperience-page-builder-utilities/issues/new) on GitHub.
 
-If you'd like to make a contribution, you can create a [PR on GitHub](https://github.com/wiredviews/xperience-page-builder-utilities/compare).
+If you'd like to make a contribution, you can create a [PR on GitHub](https://github.com/KenticoDevTrev/xperience-page-builder-utilities/compare).
 
 ## References
 
@@ -143,8 +145,8 @@ If you'd like to make a contribution, you can create a [PR on GitHub](https://gi
 
 ### ASP.NET Core
 
-- [Using Tag Helpers](https://docs.microsoft.com/en-US/aspnet/core/mvc/views/tag-helpers/intro?view=aspnetcore-6.0)
-- [Authoring Tag Helpers](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/authoring?view=aspnetcore-6.0)
+- [Using Tag Helpers](https://docs.microsoft.com/en-US/aspnet/core/mvc/views/tag-helpers/intro?view=aspnetcore-8.0)
+- [Authoring Tag Helpers](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/authoring?view=aspnetcore-8.0)
 - [ASP.NET Core - Environment Tag Helper (source)](https://github.com/dotnet/aspnetcore/blob/v5.0.1/src/Mvc/Mvc.TagHelpers/src/EnvironmentTagHelper.cs)
 
 ### Kentico Xperience

@@ -1,16 +1,8 @@
-using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using CMS.Base;
-using CMS.DocumentEngine;
 using FluentAssertions;
-using Kentico.Content.Web.Mvc;
-using Kentico.PageBuilder.Web.Mvc;
-using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Http;
 using NSubstitute;
 using NSubstitute.ReturnsExtensions;
-using XperienceCommunity.PageBuilderUtilities;
 using Xunit;
 
 namespace XperienceCommunity.PageBuilderTagHelpers.Tests
