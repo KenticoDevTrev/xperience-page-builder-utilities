@@ -4,7 +4,8 @@
     <TargetFramework>net8.0</TargetFramework>
 
     <Description>
-      This package provides an ASP.NET Core Tag Helper to help toggle the rendering of markup in a Razor View based on the Kentico Xperience Page Builder mode of the current request.
+      This package provides an ASP.NET Core Tag Helper to help toggle the rendering of markup in a
+      Razor View based on the Kentico Xperience Page Builder mode of the current request.
     </Description>
 
     <Product>XperienceCommunity.DevTools.PageBuilderTagHelpers</Product>
@@ -19,13 +20,14 @@
   <ItemGroup>
     <PackageReference Include="Kentico.Xperience.WebApp" />
     <PackageReference Include="Microsoft.SourceLink.GitHub">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\XperienceCommunity.PageBuilderUtilities\XperienceCommunity.DevTools.PageBuilderUtilities.csproj" />
+    <ProjectReference
+      Include="..\XperienceCommunity.DevTools.PageBuilderUtilities\XperienceCommunity.DevTools.PageBuilderUtilities.csproj" />
   </ItemGroup>
 
 </Project>

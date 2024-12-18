@@ -3,9 +3,9 @@ This is an updated version of [Sean's xperience-page-builder-utilities](https://
 
 ## Packages
 
-- [![NuGet Package](https://img.shields.io/nuget/v/XperienceCommunity.PageBuilderUtilities.svg)](https://www.nuget.org/packages/XperienceCommunity.DevTools.PageBuilderUtilities)
+- [![NuGet Package](https://img.shields.io/nuget/v/XperienceCommunity.DevTools.PageBuilderUtilities.svg)](https://www.nuget.org/packages/XperienceCommunity.DevTools.PageBuilderUtilities)
 
-- [![NuGet Package](https://img.shields.io/nuget/v/XperienceCommunity.PageBuilderTagHelpers.svg)](https://www.nuget.org/packages/XperienceCommunity.DevTools.PageBuilderTagHelpers)
+- [![NuGet Package](https://img.shields.io/nuget/v/XperienceCommunity.DevTools..PageBuilderTagHelpers.svg)](https://www.nuget.org/packages/XperienceCommunity.DevTools.PageBuilderTagHelpers)
 
 
 ## Dependencies
@@ -94,7 +94,7 @@ to help toggle HTML in Razor views based on the Page Builder 'mode' of the reque
    }
    ```
 
-   - _Note_: This extension method comes from the `XperienceCommunity.PageBuilderUtilities` package, above, which is a dependency of `XperienceCommunity.PageBuilderTagHelpers`
+   - _Note_: This extension method comes from the `XperienceCommunity.DevTools.PageBuilderUtilities` package, above, which is a dependency of `XperienceCommunity.DevTools.PageBuilderTagHelpers`
 
 1. Include the [tag helper assembly name](https://docs.microsoft.com/en-US/aspnet/core/mvc/views/tag-helpers/intro?view=aspnetcore-5.0#addtaghelper-makes-tag-helpers-available) in the `~/Views/_ViewImports.cshtml`
 

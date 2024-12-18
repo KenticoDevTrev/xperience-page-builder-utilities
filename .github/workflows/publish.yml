@@ -35,12 +35,12 @@ jobs:
       - name: 'Pack and Publish: Core'
         uses: ./.github/actions/pack-and-publish
         with:
-          projectPath: './src/XperienceCommunity.PageBuilderTagHelpers'
+          projectPath: './src/XperienceCommunity.DevTools.PageBuilderTagHelpers'
           preReleaseVersion: ${{ github.run_number }}-${{ github.run_attempt }}
       - name: 'Pack and Publish: Data'
         uses: ./.github/actions/pack-and-publish
         with:
-          projectPath: './src/XperienceCommunity.PageBuilderUtilities'
+          projectPath: './src/XperienceCommunity.DevTools.PageBuilderUtilities'
           preReleaseVersion: ${{ github.run_number }}-${{ github.run_attempt }}
 
   publishPreRelease:
