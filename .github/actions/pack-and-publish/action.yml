@@ -13,15 +13,15 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Create PreRelease Artifact
-      run: dotnet pack ${{ inputs.projectPath }} -c Release --no-build --include-symbols -o ./artifacts/prerelease --version-suffix prerelease-${{ inputs.preReleaseVersion }}
-      shell: pwsh
-
-    - name: 'Save prerelease artifact'
-      uses: actions/upload-artifact@v4
-      with:
-        name: prerelease
-        path: ./artifacts/prerelease/*
+#    - name: Create PreRelease Artifact
+#      run: dotnet pack ${{ inputs.projectPath }} -c Release --no-build --include-symbols -o ./artifacts/prerelease --version-suffix prerelease-${{ inputs.preReleaseVersion }}
+#      shell: pwsh
+#
+#    - name: 'Save prerelease artifact'
+#      uses: actions/upload-artifact@v4
+#      with:
+#        name: prerelease
+#        path: ./artifacts/prerelease/*
 
     - name: Create Release Artifact
       run: dotnet pack ${{ inputs.projectPath }} -c Release --no-build --include-symbols -o ./artifacts/release
