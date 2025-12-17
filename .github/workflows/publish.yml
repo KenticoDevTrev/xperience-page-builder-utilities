@@ -45,8 +45,8 @@ jobs:
           preReleaseVersion: ${{ github.run_number }}-${{ github.run_attempt }}
           projectSubfolder: 'utilities'
 
-  publishPreRelease:
-    name: Publish PreRelease NuGet Package
+  publishPreReleaseTagHelper:
+    name: Publish PreRelease NuGet Package (taghelper)
     environment: prerelease
     needs: createArtifacts
     runs-on: ubuntu-latest
@@ -54,21 +54,46 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v5
         with:
-          name: prerelease
+          name: prerelease-taghelper
           
       - name: Publish NuGet Package
         run: dotnet nuget push *.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
-
-  publishRelease:
-    name: Publish Release NuGet Package
-    environment: release
-    needs: [createArtifacts, publishPreRelease]
+  publishPreReleaseUtilities:
+    name: Publish PreRelease NuGet Package (utilities)
+    environment: prerelease
+    needs: createArtifacts
     runs-on: ubuntu-latest
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v5
         with:
-          name: release
+          name: prerelease-utilities
+          
+      - name: Publish NuGet Package
+        run: dotnet nuget push *.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
+  publishReleaseTagHelper:
+    name: Publish Release NuGet Package
+    environment: release
+    needs: [createArtifacts, publishPreReleaseTagHelper]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: release-taghelper
+          
+      - name: Publish NuGet Package
+        run: dotnet nuget push *.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
+  publishReleaseUtilities:
+    name: Publish Release NuGet Package
+    environment: release
+    needs: [createArtifacts, publishPreReleaseUtilities]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: release-utilities
           
       - name: Publish NuGet Package
         run: dotnet nuget push *.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
