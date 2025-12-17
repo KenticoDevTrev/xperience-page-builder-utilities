@@ -24,7 +24,8 @@ runs:
 #        path: ./artifacts/prerelease/*
 
     - name: Create Release Artifact
-      run: dotnet pack ${{ inputs.projectPath }} -c Release --no-build --include-symbols -o ./artifacts/release
+#     run: dotnet pack ${{ inputs.projectPath }} -c Release --no-build --include-symbols -o ./artifacts/release
+      run: dotnet pack ${{ inputs.projectPath }} -c Release --no-build -o ./artifacts/release
       shell: pwsh
 
     - name: 'Save release artifact'
