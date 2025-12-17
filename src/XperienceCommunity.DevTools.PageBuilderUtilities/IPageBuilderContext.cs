@@ -11,7 +11,7 @@ namespace XperienceCommunity.PageBuilderUtilities
         /// <remarks>
         /// False if the Page Builder Mode cannot be determined (ex no HttpContext, Xperience features not initialized)
         /// </remarks>
-        bool IsPreviewMode { get; }
+        public bool IsPreviewMode { get; }
 
         /// <summary>
         /// True if <see cref="IsLivePreviewMode"/> and <see cref="IsEditMode"/> is false. Also the opposite of <see cref="IsPreviewMode"/>
@@ -19,7 +19,7 @@ namespace XperienceCommunity.PageBuilderUtilities
         /// <remarks>
         /// True if the Page Builder Mode cannot be determined (ex no HttpContext, Xperience features not initialized)
         /// </remarks>
-        bool IsLiveMode { get; }
+        public bool IsLiveMode { get; }
 
         /// <summary>
         /// True if the current request is being made for a preview version of the Page with editing disabled
@@ -27,7 +27,7 @@ namespace XperienceCommunity.PageBuilderUtilities
         /// <remarks>
         /// False if the Page Builder Mode cannot be determined (ex no HttpContext, Xperience features not initialized)
         /// </remarks>
-        bool IsLivePreviewMode { get; }
+        public bool IsLivePreviewMode { get; }
 
         /// <summary>
         /// True if the current request is being made for the Page Builder experience
@@ -35,17 +35,17 @@ namespace XperienceCommunity.PageBuilderUtilities
         /// <remarks>
         /// False if the Page Builder Mode cannot be determined (ex no HttpContext, Xperience features not initialized)
         /// </remarks>
-        bool IsEditMode { get; }
+        public bool IsEditMode { get; }
 
         /// <summary>
         /// The current Mode as a <see cref="PageBuilderMode" /> value
         /// </summary>
-        PageBuilderMode Mode { get; }
+        public PageBuilderMode Mode { get; }
 
         /// <summary>
         /// The value of <see cref="Mode" /> as a string
         /// </summary>
-        string ModeName();
+        public string ModeName();
     }
 
     /// <summary>

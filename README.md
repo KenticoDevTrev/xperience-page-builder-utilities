@@ -12,6 +12,13 @@ This is an updated version of [Sean's xperience-page-builder-utilities](https://
 
 These libraries are compatible with ASP.NET Core 8.0+ and are designed to be used with the Xperience by Kentico 30.0 and above application [running on ASP.NET Core](https://docs.xperience.io/x/BQ2RBg).
 
+## Library Version Matrix
+
+| Xperience Version | Library Version |
+| ----------------- | --------------- |
+| >= 31.0.0         | 2.x             |
+|    30.0.0-30.12.3 | 1.x             |
+
 ## Page Builder Utilities
 
 This library provides an abstraction over the Kentico Xperience Page Builder [rendering mode](https://docs.xperience.io/x/QA2RBg#Creatingpageswitheditableareas-Checkingforrenderingcontext) so that developers can conditionally execute code based on the mode of a given HTTP request to their ASP.NET Core application.
@@ -148,7 +155,3 @@ If you'd like to make a contribution, you can create a [PR on GitHub](https://gi
 - [Using Tag Helpers](https://docs.microsoft.com/en-US/aspnet/core/mvc/views/tag-helpers/intro?view=aspnetcore-8.0)
 - [Authoring Tag Helpers](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/authoring?view=aspnetcore-8.0)
 - [ASP.NET Core - Environment Tag Helper (source)](https://github.com/dotnet/aspnetcore/blob/v5.0.1/src/Mvc/Mvc.TagHelpers/src/EnvironmentTagHelper.cs)
-
-### Kentico Xperience
-
-- [Using Xperience 13.0 Built-in Tag Helpers](https://docs.xperience.io/x/bYHaBg)
