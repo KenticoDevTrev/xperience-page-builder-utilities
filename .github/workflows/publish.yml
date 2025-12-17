@@ -72,7 +72,7 @@ jobs:
       - name: Publish NuGet Package
         run: dotnet nuget push *.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
   publishReleaseTagHelper:
-    name: Publish Release NuGet Package
+    name: Publish Release NuGet Package (taghelper)
     environment: release
     needs: [createArtifacts, publishPreReleaseTagHelper]
     runs-on: ubuntu-latest
@@ -85,7 +85,7 @@ jobs:
       - name: Publish NuGet Package
         run: dotnet nuget push *.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
   publishReleaseUtilities:
-    name: Publish Release NuGet Package
+    name: Publish Release NuGet Package (utilities)
     environment: release
     needs: [createArtifacts, publishPreReleaseUtilities]
     runs-on: ubuntu-latest
