@@ -23,7 +23,7 @@ runs:
     - name: 'Save prerelease artifact'
       uses: actions/upload-artifact@v4
       with:
-        name: prerelease
+        name: prerelease-${{ inputs.projectSubfolder}}
         path: ./artifacts/${{ inputs.projectSubfolder}}/prerelease/*
 
     - name: Create Release Artifact
@@ -33,5 +33,5 @@ runs:
     - name: 'Save release artifact'
       uses: actions/upload-artifact@v4
       with:
-        name: release
+        name: release-${{ inputs.projectSubfolder}}
         path: ./artifacts/${{ inputs.projectSubfolder}}/release/*
